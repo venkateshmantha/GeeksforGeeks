@@ -1,0 +1,18 @@
+class GfG
+{
+    int isBST(Node root){
+        return (isBSTUtil(root, Integer.MIN_VALUE,Integer.MAX_VALUE))?1:0;
+    }
+ 
+    boolean isBSTUtil(Node node, int min, int max)
+    {
+    
+        if (node == null)
+            return true;
+ 
+        if (node.data < min || node.data > max)
+            return false;
+ 
+        return (isBSTUtil(node.left, min, node.data-1) && isBSTUtil(node.right, node.data+1, max));
+    }
+}
